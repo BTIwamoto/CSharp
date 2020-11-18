@@ -21,9 +21,11 @@ namespace NerdStore.Catalogo.Domain
 
         public int QuantidadeEstoque { get; private set; }
 
+        public Dimensoes Dimensoes { get; private set; }
+
         public Categoria Categoria { get; private set; }
 
-        public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriId, DateTime dataCadastro, string imagem)
+        public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriId, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
             Nome = nome;
             Descricao = descricao;
@@ -32,6 +34,7 @@ namespace NerdStore.Catalogo.Domain
             CategoriaId = categoriId;
             DataCadastro = dataCadastro;
             Imagem = imagem;
+            Dimensoes = dimensoes;
 
             Validar();
         }
@@ -48,6 +51,8 @@ namespace NerdStore.Catalogo.Domain
 
         public void AlterarDescricao(string descricao)
         {
+            Validacoes.ValidarSeVazio(descricao, "O campo Descricao do produto não pode estar vazio");
+
             Descricao = descricao;
         }
 
@@ -55,6 +60,9 @@ namespace NerdStore.Catalogo.Domain
         {
             if (quantidade < 0)
                 quantidade *= -1;
+
+            if (!PossuiEstoque(quantidade))
+                throw new DomainException("Estoque insuficiente");
 
             QuantidadeEstoque -= quantidade;
         }
@@ -71,8 +79,11 @@ namespace NerdStore.Catalogo.Domain
 
         public void Validar()
         {
-
-            throw new NotImplementedException();
+            Validacoes.ValidarSeVazio(Nome, "O campo Nome do produto não pode estar vazio");
+            Validacoes.ValidarSeVazio(Descricao, "O campo Descrição do produto não pode estar vazio");
+            Validacoes.ValidarSeIgual(CategoriaId, Guid.Empty, "O campo CategoriaId do produto não pode estar vazio");
+            Validacoes.ValidarSeMenorQue(Valor, 0, "O campo Valor do produto não pode ser menor que 0");
+            Validacoes.ValidarSeVazio(Imagem, "O campo Imagem do produto não pode estar vazio");
         }
     }
 }
