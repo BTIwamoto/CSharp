@@ -1,4 +1,6 @@
-﻿using NerdStore.Core.DomainObjects;
+﻿using System.Collections;
+using System.Collections.Generic;
+using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Catalogo.Domain
 {
@@ -8,6 +10,7 @@ namespace NerdStore.Catalogo.Domain
 
         public int Codigo { get; private set; }
 
+        protected Categoria() { }
         public Categoria(string nome, int codigo)
         {
             Nome = nome;
@@ -15,6 +18,8 @@ namespace NerdStore.Catalogo.Domain
 
             Validar();
         }
+
+        public ICollection<Produto> Produtos { get; set; }
 
         public override string ToString()
         {
