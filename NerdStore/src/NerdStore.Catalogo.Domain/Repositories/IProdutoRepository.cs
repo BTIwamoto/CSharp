@@ -1,4 +1,6 @@
-﻿using NerdStore.Core.Data;
+﻿using NerdStore.Catalogo.Domain.AggregationObjects;
+using NerdStore.Catalogo.Domain.Entities;
+using NerdStore.Core.Data;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

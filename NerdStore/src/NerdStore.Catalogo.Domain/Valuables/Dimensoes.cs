@@ -1,6 +1,6 @@
-﻿using NerdStore.Core.DomainObjects;
+﻿using NerdStore.Core.DomainObjects.ValidationHelper;
 
-namespace NerdStore.Catalogo.Domain
+namespace NerdStore.Catalogo.Domain.Valuables
 {
     public class Dimensoes
     {

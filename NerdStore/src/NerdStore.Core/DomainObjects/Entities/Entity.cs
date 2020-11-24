@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace NerdStore.Core.DomainObjects
+namespace NerdStore.Core.DomainObjects.Entities
 {
     public abstract class Entity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; }
 
         protected Entity()
         {
@@ -18,10 +18,7 @@ namespace NerdStore.Core.DomainObjects
             if (ReferenceEquals(this, compareTo))
                 return true;
 
-            if (ReferenceEquals(null, compareTo))
-                return false;
-
-            return Id.Equals(compareTo.Id);
+            return !ReferenceEquals(null, compareTo) && Id.Equals(compareTo.Id);
         }
 
         public static bool operator ==(Entity a, Entity b)

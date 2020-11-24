@@ -1,7 +1,12 @@
-﻿using NerdStore.Core.DomainObjects;
+﻿using NerdStore.Catalogo.Domain.Entities;
+using NerdStore.Catalogo.Domain.Valuables;
+using NerdStore.Core.DomainObjects.AggregationInterfaces;
+using NerdStore.Core.DomainObjects.Entities;
+using NerdStore.Core.DomainObjects.ExceptionHelper;
+using NerdStore.Core.DomainObjects.ValidationHelper;
 using System;
 
-namespace NerdStore.Catalogo.Domain
+namespace NerdStore.Catalogo.Domain.AggregationObjects
 {
     public class Produto : Entity, IAggregateRoot
     {

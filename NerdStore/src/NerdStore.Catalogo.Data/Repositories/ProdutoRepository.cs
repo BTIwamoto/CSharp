@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using NerdStore.Catalogo.Data.Context;
+using NerdStore.Catalogo.Domain.AggregationObjects;
+using NerdStore.Catalogo.Domain.Entities;
+using NerdStore.Catalogo.Domain.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using NerdStore.Catalogo.Data.Context;
-using NerdStore.Catalogo.Domain;
-using NerdStore.Catalogo.Domain.Repositories;
-using NerdStore.Core.Data;
 
 namespace NerdStore.Catalogo.Data.Repositories
 {
@@ -14,7 +14,7 @@ namespace NerdStore.Catalogo.Data.Repositories
     {
         public ProdutoRepository(CatalogoContext context) : base(context)
         {
-            
+
         }
 
         public async Task<IEnumerable<Produto>> ObterTodos()

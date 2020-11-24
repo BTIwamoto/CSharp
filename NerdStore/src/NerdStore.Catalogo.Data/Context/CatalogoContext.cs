@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using NerdStore.Catalogo.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using NerdStore.Catalogo.Domain.AggregationObjects;
+using NerdStore.Catalogo.Domain.Entities;
 using NerdStore.Core.Data;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 

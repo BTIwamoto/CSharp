@@ -1,5 +1,6 @@
 ﻿using NerdStore.Core.DomainObjects;
 using System;
+using NerdStore.Core.DomainObjects.Entities;
 
 namespace NerdStore.Core.Data
 {
