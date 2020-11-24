@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using NerdStore.Catalogo.Domain.AggregationObjects;
+using NerdStore.Core.DomainObjects.Entities;
+using NerdStore.Core.DomainObjects.ValidationHelper;
 using System.Collections.Generic;
-using NerdStore.Core.DomainObjects;
 
-namespace NerdStore.Catalogo.Domain
+namespace NerdStore.Catalogo.Domain.Entities
 {
     public class Categoria : Entity
     {

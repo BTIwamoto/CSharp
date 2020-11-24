@@ -1,6 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using NerdStore.Core.DomainObjects.ExceptionHelper;
+using System.Text.RegularExpressions;
 
-namespace NerdStore.Core.DomainObjects
+namespace NerdStore.Core.DomainObjects.ValidationHelper
 {
     public class Validacoes
     {
@@ -18,7 +19,7 @@ namespace NerdStore.Core.DomainObjects
 
         public static void ValidarTamanho(string valor, int maximo, string mensagem)
         {
-            int length = valor.Trim().Length;
+            var length = valor.Trim().Length;
 
             if (length > maximo)
                 throw new DomainException(mensagem);
@@ -26,7 +27,7 @@ namespace NerdStore.Core.DomainObjects
 
         public static void ValidarTamanho(string valor, int minimo, int maximo, string mensagem)
         {
-            int length = valor.Trim().Length;
+            var length = valor.Trim().Length;
 
             if (length < minimo || length > maximo)
                 throw new DomainException(mensagem);
@@ -34,7 +35,7 @@ namespace NerdStore.Core.DomainObjects
 
         public static void ValidarExpressao(string pattern, string valor, string mensagem)
         {
-            Regex regex = new Regex(pattern);
+            var regex = new Regex(pattern);
 
             if (!regex.IsMatch(valor))
                 throw new DomainException(mensagem);

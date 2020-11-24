@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NerdStore.Catalogo.Domain;
+using NerdStore.Catalogo.Domain.AggregationObjects;
 
 namespace NerdStore.Catalogo.Data.Configs
 {
