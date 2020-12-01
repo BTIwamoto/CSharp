@@ -30,7 +30,7 @@ namespace NerdStore.Catalogo.Data.Repositories
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            Context.Dispose();
         }
     }
 }
