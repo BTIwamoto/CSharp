@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace NerdStore.Catalogo.Application.Services.AppServices
 {
-    public class ProdutoAppService : AppService<ProdutoViewModel, Produto>, IProdutoAppService
+    public class ProdutoAppService : IProdutoAppService
     {
         private readonly IMapper _mapper;
         private readonly IProdutoRepository _produtoRepository;
         private readonly IEstoqueService _estoqueService;
 
-        public ProdutoAppService(IMapper mapper, IRepository<Produto> repository, IProdutoRepository produtoRepository, IEstoqueService estoqueService) : base(mapper, repository)
+        public ProdutoAppService(IMapper mapper, IProdutoRepository produtoRepository, IEstoqueService estoqueService)
         {
             _mapper = mapper;
             _produtoRepository = produtoRepository;
@@ -59,6 +59,24 @@ namespace NerdStore.Catalogo.Application.Services.AppServices
                 throw new DomainException("Falha ao repor estoque");
 
             return _mapper.Map<ProdutoViewModel>(_produtoRepository.ObterPorId(id).Result);
+        }
+
+        public async Task Adicionar(ProdutoViewModel objectViewModel)
+        {
+            var obj = _mapper.Map<Produto>(typeof(ProdutoViewModel));
+
+            _produtoRepository.Adicionar(obj);
+
+            await _produtoRepository.UnitOfWkOfWork.Commit();
+        }
+
+        public async Task Atualizar(ProdutoViewModel objectViewModel)
+        {
+            var obj = _mapper.Map<Produto>(typeof(ProdutoViewModel));
+
+            _produtoRepository.Atualizar(obj);
+
+            await _produtoRepository.UnitOfWkOfWork.Commit();
         }
 
         public void Dispose()
