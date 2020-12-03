@@ -3,7 +3,7 @@ using NerdStore.Core.DomainObjects.Entities;
 using NerdStore.Core.DomainObjects.ValidationHelper;
 using System.Collections.Generic;
 
-namespace NerdStore.Catalogo.Domain.Entities
+namespace NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate
 {
     public class Categoria : Entity
     {

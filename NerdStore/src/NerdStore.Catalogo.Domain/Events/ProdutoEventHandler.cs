@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using NerdStore.Catalogo.Domain.Repositories;
+using NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate;
 using System.Threading;
 using System.Threading.Tasks;
 

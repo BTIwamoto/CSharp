@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NerdStore.Catalogo.Application.AutoMapper;
-using NerdStore.Catalogo.Data.Context;
+using NerdStore.Catalogo.Infrastructure.Context;
 using NerdStore.WebApp.MVC.Data;
 using NerdStore.WebApp.MVC.Setup;
 

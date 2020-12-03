@@ -1,7 +1,6 @@
-using NerdStore.Catalogo.Domain.Valuables;
-using System;
-using NerdStore.Catalogo.Domain.AggregationObjects;
+using NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate;
 using NerdStore.Core.DomainObjects.ExceptionHelper;
+using System;
 using Xunit;
 
 namespace NerdStore.Catalogo.Domain.Tests

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using NerdStore.Catalogo.Application.Interfaces.AppServices;
 using NerdStore.Catalogo.Application.ViewModels;
-using NerdStore.Catalogo.Domain.AggregationObjects;
-using NerdStore.Catalogo.Domain.Repositories;
+using NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate;
 using NerdStore.Catalogo.Domain.Services;
-using NerdStore.Core.Data;
 using NerdStore.Core.DomainObjects.ExceptionHelper;
 using System;
 using System.Collections.Generic;
@@ -67,7 +65,7 @@ namespace NerdStore.Catalogo.Application.Services.AppServices
 
             _produtoRepository.Adicionar(obj);
 
-            await _produtoRepository.UnitOfWkOfWork.Commit();
+            await _produtoRepository.UnitOfWork.Commit();
         }
 
         public async Task Atualizar(ProdutoViewModel objectViewModel)
@@ -76,7 +74,7 @@ namespace NerdStore.Catalogo.Application.Services.AppServices
 
             _produtoRepository.Atualizar(obj);
 
-            await _produtoRepository.UnitOfWkOfWork.Commit();
+            await _produtoRepository.UnitOfWork.Commit();
         }
 
         public void Dispose()

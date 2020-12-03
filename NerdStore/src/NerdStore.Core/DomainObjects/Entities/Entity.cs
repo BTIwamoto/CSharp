@@ -6,6 +6,8 @@ namespace NerdStore.Core.DomainObjects.Entities
     {
         public Guid Id { get; }
 
+        public DateTime DataCadastro { get; private set; }
+
         protected Entity()
         {
             Id = new Guid();

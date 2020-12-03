@@ -1,12 +1,13 @@
-﻿using NerdStore.Catalogo.Domain.Events;
-using NerdStore.Catalogo.Domain.Repositories;
+﻿using NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate;
+using NerdStore.Catalogo.Domain.Events;
 using NerdStore.Catalogo.Domain.Services;
 using NerdStore.Core.Bus;
 using System;
 using System.Threading.Tasks;
 
-namespace NerdStore.Catalogo.Data.Services
+namespace NerdStore.Catalogo.Infrastructure.Services
 {
+    //TODO: Remover essa classe futuramente. Melhorar essa questão
     public class EstoqueService : IEstoqueService
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -39,7 +40,7 @@ namespace NerdStore.Catalogo.Data.Services
 
             _produtoRepository.Atualizar(produto);
 
-            return await _produtoRepository.UnitOfWkOfWork.Commit();
+            return await _produtoRepository.UnitOfWork.Commit();
         }
 
         public async Task<bool> ReporEstoque(Guid produtoId, int quantidade)
@@ -53,7 +54,7 @@ namespace NerdStore.Catalogo.Data.Services
 
             _produtoRepository.Atualizar(produto);
 
-            return await _produtoRepository.UnitOfWkOfWork.Commit();
+            return await _produtoRepository.UnitOfWork.Commit();
         }
 
         public void Dispose()

@@ -1,12 +1,11 @@
-﻿using NerdStore.Core.DomainObjects;
+﻿using NerdStore.Core.DomainObjects.Entities;
 using System;
-using NerdStore.Core.DomainObjects.Entities;
 
 namespace NerdStore.Core.Data
 {
     public interface IRepository<T> : IDisposable where T : Entity
     {
-        IUnitOfWork UnitOfWkOfWork { get; }
+        IUnitOfWork UnitOfWork { get; }
 
         void Adicionar(T obj);
 

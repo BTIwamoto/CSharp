@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NerdStore.Catalogo.Domain.AggregationObjects;
+using NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate;
 
-namespace NerdStore.Catalogo.Data.Configs
+namespace NerdStore.Catalogo.Infrastructure.EntityConfigurations
 {
-    public class ProdutoConfig : IEntityTypeConfiguration<Produto>
+    public class ProdutoEntityTypeConfiguration : BaseEntityTypeConfiguration<Produto>
     {
-        public void Configure(EntityTypeBuilder<Produto> builder)
+        public override void Configure(EntityTypeBuilder<Produto> builder)
         {
-            builder.HasKey(c => c.Id);
+            builder.ToTable(("Produtos"));
 
             builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar(250)");
 
@@ -24,8 +24,6 @@ namespace NerdStore.Catalogo.Data.Configs
 
                 cm.Property(c => c.Profundidade).HasColumnName("Profundidade").HasColumnType("int");
             });
-
-            builder.ToTable(("Produtos"));
         }
     }
 }

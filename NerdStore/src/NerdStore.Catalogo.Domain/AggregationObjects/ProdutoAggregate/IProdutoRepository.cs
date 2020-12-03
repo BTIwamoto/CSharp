@@ -1,11 +1,9 @@
-﻿using NerdStore.Catalogo.Domain.AggregationObjects;
-using NerdStore.Catalogo.Domain.Entities;
-using NerdStore.Core.Data;
+﻿using NerdStore.Core.Data;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NerdStore.Catalogo.Domain.Repositories
+namespace NerdStore.Catalogo.Domain.AggregationObjects.ProdutoAggregate
 {
     public interface IProdutoRepository : IRepository<Produto>
     {
